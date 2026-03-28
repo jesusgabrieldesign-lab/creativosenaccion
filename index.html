@@ -6,117 +6,46 @@
     <title>Jesús Gabriel Ramírez | Mentoría Creativa</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #1a1a1a;
-            --accent: #E89F22;
-            --bg: #f9f9f9;
-            --spacing: 60px;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
+        :root { --primary: #1a1a1a; --accent: #E89F22; --bg: #f9f9f9; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--primary); line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+        
+        header { padding: 60px 0; border-bottom: 2px solid var(--primary); text-align: center; margin-bottom: 60px; }
+        header img { max-width: 180px; height: auto; display: block; margin: 0 auto 15px; }
+        .tagline { font-weight: 400; letter-spacing: 2px; font-size: 0.75rem; text-transform: uppercase; }
 
-        header {
-            padding: 80px 0 40px 0;
-            border-bottom: 2px solid var(--primary);
-            text-align: center;
-            margin-bottom: var(--spacing);
-        }
-
-        h1 { font-size: clamp(2.2rem, 10vw, 4.5rem); font-weight: 800; margin: 0; text-transform: uppercase; line-height: 0.85; letter-spacing: -2px; }
-        .serif { font-family: 'Playfair Display', serif; font-style: italic; color: var(--accent); text-transform: none; letter-spacing: 0; }
-        .tagline { margin-top: 20px; font-weight: 400; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase; }
-
-        /* Grilla Portada - Mantiene 3 columnas siempre */
-        .hero-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 100px;
-        }
+        .hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 100px; }
         .hero-grid img { width: 100%; aspect-ratio: 2/3; object-fit: cover; border: 1px solid var(--primary); }
 
-        /* Perfil con composición editorial */
-        .section-split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-            margin-bottom: 120px;
-        }
-        .profile-img { width: 100%; border: 1px solid var(--primary); filter: grayscale(20%); }
-        .about-text { padding-top: 20px; }
-        .about-text h2 { font-size: 2.5rem; line-height: 1; margin-bottom: 20px; }
+        .section-split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-bottom: 120px; }
+        .profile-img { width: 100%; border: 1px solid var(--primary); }
+        .serif { font-family: 'Playfair Display', serif; font-style: italic; color: var(--accent); font-size: 2.5rem; }
 
-        /* Filosofía */
-        .philosophy {
-            background: #fff;
-            padding: 80px 0;
-            border-top: 1px solid #000;
-            border-bottom: 1px solid #000;
-            margin-bottom: 100px;
-        }
-        .philosophy img { width: 100%; aspect-ratio: 16/7; object-fit: cover; margin-bottom: 30px; border: 1px solid #eee; }
-        .philosophy-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .philosophy { background: #fff; padding: 80px 0; border-top: 1px solid #000; border-bottom: 1px solid #000; margin-bottom: 100px; text-align: center; }
+        .philosophy img { width: 100%; max-height: 450px; object-fit: cover; margin-bottom: 30px; }
 
-        /* Galería con reseñas técnicas */
         .work-section h2 { font-size: 3rem; text-align: center; margin-bottom: 50px; }
+        .gallery-item.panoramic img { width: 100%; border: 1px solid #000; margin-bottom: 15px; }
         
-        .gallery-item { margin-bottom: 80px; }
-        .gallery-item.panoramic img { width: 100%; height: auto; border: 1px solid #000; margin-bottom: 15px; }
-        
-        .gallery-grid-main {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
+        .gallery-grid-main { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .card { display: flex; flex-direction: column; }
         .card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border: 1px solid #000; margin-bottom: 15px; }
-        .card h3 { font-size: 0.9rem; font-weight: 800; margin: 0; text-transform: uppercase; color: var(--accent); }
-        .card p { font-size: 0.85rem; margin-top: 5px; line-height: 1.4; }
+        .card h3 { font-size: 0.9rem; font-weight: 800; text-transform: uppercase; color: var(--accent); margin: 0; }
+        .card p { font-size: 0.85rem; line-height: 1.4; margin-top: 5px; }
 
-        /* CTA */
-        .cta-section {
-            background: var(--primary);
-            color: #fff;
-            padding: 120px 20px;
-            text-align: center;
-            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
-        }
-        .btn-whatsapp {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--primary);
-            padding: 22px 45px;
-            text-decoration: none;
-            font-weight: 800;
-            margin-top: 40px;
-            text-transform: uppercase;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .btn-whatsapp:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .cta-section { background: var(--primary); color: #fff; padding: 100px 20px; text-align: center; }
+        .btn-whatsapp { display: inline-block; background: var(--accent); color: var(--primary); padding: 20px 40px; text-decoration: none; font-weight: 800; margin-top: 30px; text-transform: uppercase; }
 
-        /* Responsive Mobile */
         @media (max-width: 768px) {
-            .section-split { grid-template-columns: 1fr; gap: 30px; }
-            .gallery-grid-main { grid-template-columns: 1fr; gap: 50px; }
+            .section-split, .gallery-grid-main { grid-template-columns: 1fr; }
             .hero-grid { gap: 8px; }
-            h1 { line-height: 1; }
         }
     </style>
 </head>
 <body>
 
     <header class="container">
-        <h1>Jesús Gabriel <span class="serif">Ramírez</span></h1>
+        <img src="logo.png" alt="Logo Jesús Gabriel Ramírez">
         <p class="tagline">El acto de crear — Clases Particulares Santiago & Via Zoom</p>
     </header>
 
@@ -129,46 +58,42 @@
 
         <section class="section-split">
             <img src="perfil.jpg" alt="Retrato del Mentor" class="profile-img">
-            <div class="about-text">
+            <div>
                 <h2 class="serif">El dibujo como diario</h2>
-                <p>Mi formación técnica en diseño es el cimiento, pero mi esencia habita en el papel. Entiendo el arte como una transmutación: el acto de crear nos transforma a nosotros antes que al objeto. Prefiero estar tras el lente, capturando la esencia de lo que nace y guiando el trazo ajeno hacia su propia identidad.</p>
+                <p>Mi formación técnica en diseño es el cimiento, pero mi esencia habita en el papel. Entiendo el arte como una transmutación: el acto de crear nos transforma a nosotros antes que al objeto.</p>
             </div>
         </section>
 
         <section class="philosophy">
-            <div class="container philosophy-content">
-                <img src="filosofia.jpg" alt="Degradados Bitácora">
+            <div class="container">
+                <img src="filosofia.jpg" alt="Filosofía">
                 <h2 class="serif">De la Curiosidad a la Disciplina</h2>
-                <p>Iniciamos en el asombro. Exploramos las potencialidades en un entorno de comodidad y confianza, para luego, con la disciplina como base, cruzar el umbral hacia nuevas habilidades. Mi metodología se basa en identificar el talento natural para transformarlo en destreza real mediante el tacto y la observación.</p>
+                <p>Mi metodología se basa en identificar el talento natural para transformarlo en destreza real mediante el tacto y la observación.</p>
             </div>
         </section>
 
         <section class="work-section">
             <h2 class="serif">Bitácora de Trabajos</h2>
-            
             <div class="gallery-item panoramic">
                 <img src="galeria-panoramica.jpg" alt="Vistas Planas">
-                <div style="max-width: 600px;">
-                    <h3>Vistas Planas: La Geometría del Pensamiento</h3>
-                    <p>Técnica de lápiz puro sobre papel. La representación de las tres vistas ortogonales muestra cómo la cuadrícula y la disciplina dan orden a la idea técnica.</p>
-                </div>
+                <h3>Vistas Planas: La Geometría del Pensamiento</h3>
+                <p>Técnica de lápiz puro sobre papel. La representación ortogonal muestra cómo la disciplina da orden a la idea técnica.</p>
             </div>
-
             <div class="gallery-grid-main">
                 <div class="card">
                     <img src="galeria1.jpg" alt="Exprimidor">
-                    <h3>Exprimidor: La Pureza del Tono</h3>
-                    <p>Solo color. Un render a mano sobre bitácora que explora degradados suaves, transformando un objeto cotidiano en un estudio de luz.</p>
+                    <h3>Exprimidor: Pureza del Tono</h3>
+                    <p>Solo color. Render a mano que explora degradados suaves, transformando lo cotidiano en un estudio de luz.</p>
                 </div>
                 <div class="card">
                     <img src="galeria2.jpg" alt="Butaca">
                     <h3>Butaca Abarth: El Pulso del Marcador</h3>
-                    <p>Solo marcador. Demuestra la capacidad de transmutar la energía del trazo en volumen y textura, superando la zona de fluidez.</p>
+                    <p>Solo marcador. Transmuta la energía del trazo en volumen y textura, superando la zona de fluidez.</p>
                 </div>
                 <div class="card">
                     <img src="galeria3.jpg" alt="Navaja">
                     <h3>Navaja Suiza: Técnica Mixta</h3>
-                    <p>Color y marcador. La integración de habilidades donde la disciplina y la técnica se fusionan para lograr una representación profesional.</p>
+                    <p>Color y marcador. Donde la disciplina y la técnica se fusionan para lograr una representación profesional.</p>
                 </div>
             </div>
         </section>
@@ -176,13 +101,13 @@
 
     <section class="cta-section">
         <div class="container">
-            <h2 style="font-size: clamp(2rem, 5vw, 3rem); margin: 0;">Iniciemos un diálogo creativo</h2>
-            <p style="opacity: 0.9; margin-top: 15px;">Más que una clase, es un espacio para descubrir el trazo propio.<br>Conversemos sobre cómo transformar la curiosidad en disciplina.</p>
+            <h2>Iniciemos un diálogo creativo</h2>
+            <p>Más que una clase, es un espacio para descubrir el trazo propio.</p>
             <a href="https://wa.me/56949646991" class="btn-whatsapp" target="_blank">Contactar por WhatsApp</a>
         </div>
     </section>
 
-    <footer style="padding: 60px 0; text-align: center; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;">
+    <footer style="padding: 40px 0; text-align: center; font-size: 0.7rem; opacity: 0.6;">
         &copy; 2026 Jesús Gabriel Ramírez — Santiago, Chile.
     </footer>
 
