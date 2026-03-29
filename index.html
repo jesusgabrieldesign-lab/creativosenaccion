@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jesús Gabriel Ramírez | Portafolio 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
-        /* ADN VISUAL - GLOBAL STYLES */
+        /* ADN VISUAL EXTRAÍDO DEL PDF */
         :root {
             --primary: #000000;
             --secondary: #FFFFFF;
             --accent: #E89F22;
-            --bg-soft: #F4F4F4;
-            --border: 2px solid #000000;
+            --bg-soft: #F9F9F9;
+            --border-thin: 1px solid #000000;
+            --border-thick: 3px solid #000000;
         }
 
         * { box-sizing: border-box; }
@@ -22,124 +23,125 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--secondary);
             color: var(--primary);
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
 
-        /* HEADER */
+        /* HEADER ESTILO PDF */
         header {
-            border-bottom: var(--border);
-            padding: 20px 0;
+            padding: 30px 0;
             text-align: center;
             text-transform: uppercase;
-            font-weight: 800;
+            font-weight: 700;
+            font-size: 0.7rem;
             letter-spacing: 2px;
-            font-size: 0.8rem;
+            border-bottom: var(--border-thin);
         }
 
-        /* TEXTO VERTICAL (SIDEBARS) */
+        /* SIDEBARS LITERARIOS */
         .vertical-text {
             display: none;
             position: fixed;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 3px;
+            font-size: 0.65rem;
+            letter-spacing: 4px;
             z-index: 10;
         }
-        @media (min-width: 1024px) {
+        @media (min-width: 1200px) {
             .vertical-text { display: block; }
-            .left-sidebar { left: 20px; top: 50%; transform: rotate(-180deg); writing-mode: vertical-rl; }
-            .right-sidebar { right: 20px; top: 50%; transform: translateY(-50%); writing-mode: vertical-rl; font-size: 3rem; color: var(--accent); opacity: 0.2; }
+            .left-sidebar { left: 30px; top: 50%; transform: rotate(-180deg); writing-mode: vertical-rl; }
+            .right-sidebar { right: 30px; top: 50%; transform: translateY(-50%); writing-mode: vertical-rl; }
         }
 
-        /* TITULOS */
-        h1 { font-size: clamp(2.5rem, 10vw, 5rem); font-weight: 900; text-transform: uppercase; line-height: 0.8; margin: 40px 0; letter-spacing: -3px; }
-        h2 { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; line-height: 1; }
+        /* TIPOGRAFÍA DE TÍTULOS */
+        h1 { font-size: clamp(3rem, 12vw, 6rem); font-weight: 900; text-transform: uppercase; line-height: 0.85; margin: 60px 0 20px; letter-spacing: -4px; }
+        h2 { font-size: 2.2rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 30px; }
         .serif { font-family: 'Playfair Display', serif; font-style: italic; color: var(--accent); text-transform: none; letter-spacing: 0; }
 
-        /* GRID PORTADA */
+        /* PORTADA GRID */
         .hero-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 80px;
+            gap: 10px;
+            margin-bottom: 100px;
         }
-        .hero-grid img { width: 100%; aspect-ratio: 2/3; object-fit: cover; border: var(--border); }
+        .hero-grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border: var(--border-thin); }
 
-        /* SECCIONES EDITORIALES */
+        /* SECCIÓN EDITORIAL (PERFIL) */
         .section-editorial {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-            margin-bottom: 100px;
-            padding-top: 40px;
-            border-top: 1px solid #eee;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 120px;
         }
-        .section-editorial img { width: 100%; border: var(--border); }
-        .editorial-content { border-left: var(--border); padding-left: 30px; }
+        /* Proporción de foto de perfil según PDF (Vertical Estilizada) */
+        .profile-img-container {
+            width: 100%;
+            aspect-ratio: 4/5; 
+            overflow: hidden;
+            border: var(--border-thick);
+        }
+        .profile-img-container img { width: 100%; height: 100%; object-fit: cover; }
+        .editorial-content { padding-right: 20px; }
+        .editorial-content p { font-weight: 300; font-size: 1.1rem; }
 
-        /* BLOQUE DE BIENESTAR / SKILLS */
-        .skills-container {
-            background-color: var(--bg-soft);
-            border: var(--border);
-            padding: 40px;
-            margin-bottom: 100px;
-        }
+        /* BIENESTAR & HABILIDADES (Cajas de color sólido) */
+        .skills-container { margin-bottom: 120px; }
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
-            margin-top: 30px;
         }
         .skill-card {
-            background: #fff;
-            padding: 20px;
-            border: 1px solid #000;
+            border: var(--border-thick);
+            padding: 30px;
+            background: var(--secondary);
+            transition: background 0.3s;
         }
-        .skill-card b { display: block; color: var(--accent); text-transform: uppercase; margin-bottom: 5px; }
+        .skill-card:hover { background: var(--bg-soft); }
+        .skill-card b { display: block; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
 
-        /* GALERÍA */
-        .project-detail { margin-bottom: 100px; }
-        .panoramic-frame { width: 100%; border: var(--border); margin-bottom: 20px; overflow: hidden; }
+        /* BITÁCORA / PROYECTOS */
+        .panoramic-frame { width: 100%; border: var(--border-thin); margin-bottom: 30px; }
         .panoramic-frame img { width: 100%; display: block; }
-
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 30px;
         }
-        .card { border-top: var(--border); padding-top: 15px; }
-        .card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border: var(--border); margin-bottom: 10px; }
-        .card h3 { font-size: 0.8rem; font-weight: 900; text-transform: uppercase; margin: 0; }
+        .card { border-bottom: var(--border-thin); padding-bottom: 20px; }
+        .card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border: var(--border-thin); margin-bottom: 15px; }
+        .card h3 { font-size: 0.9rem; font-weight: 900; text-transform: uppercase; margin: 0; letter-spacing: 1px; }
+        .card p { font-size: 0.85rem; font-weight: 300; margin-top: 10px; }
 
         /* CTA */
         .cta {
             background: var(--primary);
             color: var(--secondary);
-            padding: 100px 20px;
+            padding: 120px 20px;
             text-align: center;
         }
         .btn-whatsapp {
             display: inline-block;
             background: var(--accent);
             color: var(--primary);
-            padding: 20px 40px;
+            padding: 22px 50px;
             text-decoration: none;
             font-weight: 900;
             text-transform: uppercase;
-            margin-top: 30px;
-            transition: 0.3s;
+            letter-spacing: 2px;
+            margin-top: 40px;
         }
 
-        /* MOBILE OPTIMIZATION */
+        /* MOBILE */
         @media (max-width: 768px) {
             .section-editorial, .gallery-grid { grid-template-columns: 1fr; }
-            .hero-grid { gap: 5px; }
-            .editorial-content { border-left: none; border-top: var(--border); padding-left: 0; padding-top: 20px; }
-            h1 { font-size: 3.2rem; }
+            .hero-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 3.5rem; letter-spacing: -2px; }
+            .profile-img-container { aspect-ratio: 1/1; }
         }
     </style>
 </head>
@@ -156,7 +158,7 @@
         
         <section>
             <h1>El Acto de <span class="serif">Crear</span></h1>
-            <p style="text-transform: uppercase; font-weight: 800; letter-spacing: 2px; font-size: 0.75rem; margin-bottom: 40px;">
+            <p style="text-transform: uppercase; font-weight: 700; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 60px;">
                 Taller de dibujo para descubrir tu propio estilo
             </p>
             
@@ -168,18 +170,18 @@
         </section>
 
         <section class="section-editorial">
-            <img src="perfil.jpg" alt="Jesus Gabriel Ramirez">
+            <div class="profile-img-container">
+                <img src="perfil.jpg" alt="Jesus Gabriel Ramirez">
+            </div>
             <div class="editorial-content">
                 <h2 class="serif">Mucho más que <br>clases de dibujo</h2>
-                <p>Enseño tecnicas de representación para que cada niño desarrolle su estilo propio, aprenda a convivir con el error como parte del proceso y adquiera disciplina para avanzar más allá de su zona de confort.</p>
+                <p>Enseño técnicas de representación para que cada niño desarrolle su estilo propio, aprenda a convivir con el error como parte del proceso y adquiera disciplina para avanzar más allá de su zona de confort.</p>
                 <p>No formo solo dibujantes; acompaño a personas a descubrir su capacidad de enfoque y resiliencia. Mi enfoque es <b>lúdico, empático y personalizado</b>, diseñado para transformar la curiosidad en una disciplina del bienestar.</p>
             </div>
         </section>
 
         <section class="skills-container">
-            <h2 style="margin: 0;">Bienestar <span class="serif">& Habilidades</span></h2>
-            <p style="max-width: 700px; margin-top: 15px;">A través de la práctica creativa, reforzamos habilidades blandas esenciales para el desarrollo académico y personal:</p>
-            
+            <h2>Bienestar <span class="serif">& Habilidades</span></h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <b>Observación</b>
@@ -201,7 +203,7 @@
         </section>
 
         <section class="project-detail">
-            <h2 style="margin-bottom: 40px;">Bitácora de <span class="serif">Trabajos</span></h2>
+            <h2>Bitácora de <span class="serif">Trabajos</span></h2>
             <div class="panoramic-frame">
                 <img src="galeria-panoramica.jpg" alt="Vistas Tecnicas">
             </div>
@@ -210,17 +212,17 @@
                 <div class="card">
                     <img src="galeria1.jpg" alt="Exprimidor">
                     <h3>Exploración Tonal</h3>
-                    <p style="font-size: 0.8rem;">Estudio de degradados y atención al detalle y exploración conceptual.</p>
+                    <p>Estudio de degradados y atención al detalle y exploración conceptual.</p>
                 </div>
                 <div class="card">
                     <img src="galeria2.jpg" alt="Butaca">
                     <h3>Marcador</h3>
-                    <p style="font-size: 0.8rem;">El pulso seguro como ejercicio que refleja confianza.</p>
+                    <p>El pulso seguro como ejercicio que refleja confianza.</p>
                 </div>
                 <div class="card">
                     <img src="galeria3.jpg" alt="Navaja">
                     <h3>Técnicas Mixtas</h3>
-                    <p style="font-size: 0.8rem;">La perseverancia aplicada a un proceso, un compendio de aprendizajes en el tiempo.</p>
+                    <p>La perseverancia aplicada a un proceso, un compendio de aprendizajes en el tiempo.</p>
                 </div>
             </div>
         </section>
@@ -229,13 +231,13 @@
 
     <section class="cta">
         <div class="container">
-            <h2 style="font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 900; margin: 0;">¿INICIEMOS UN PROCESO CREATIVO?</h2>
-            <p style="letter-spacing: 1px; margin-top: 10px; opacity: 0.8;">Agenda una sesión de diagnóstico para conversar sobre tus objetivos.</p>
+            <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; margin: 0;">¿INICIEMOS UN PROCESO CREATIVO?</h2>
+            <p style="letter-spacing: 1px; margin-top: 20px; font-weight: 300;">Agenda una sesión de diagnóstico para conversar sobre tus objetivos.</p>
             <a href="https://wa.me/56949646991" class="btn-whatsapp" target="_blank">Consultar por el Programa</a>
         </div>
     </section>
 
-    <footer style="padding: 40px 0; text-align: center; font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 800; opacity: 0.5;">
+    <footer style="padding: 60px 0; text-align: center; font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase; font-weight: 700; opacity: 0.6;">
         © 2026 JESUS GABRIEL RAMIREZ — SANTIAGO DE CHILE
     </footer>
 
