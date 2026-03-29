@@ -27,7 +27,7 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; }
 
-        /* HEADER - URL TEXT */
+        /* HEADER */
         header {
             border-bottom: var(--border);
             padding: 20px 0;
@@ -38,7 +38,7 @@
             font-size: 0.8rem;
         }
 
-        /* TEXTO VERTICAL (SIDEBARS) - SOLO PC */
+        /* TEXTO VERTICAL (SIDEBARS) */
         .vertical-text {
             display: none;
             position: fixed;
@@ -56,9 +56,10 @@
 
         /* TITULOS */
         h1 { font-size: clamp(2.5rem, 10vw, 5rem); font-weight: 900; text-transform: uppercase; line-height: 0.8; margin: 40px 0; letter-spacing: -3px; }
+        h2 { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; line-height: 1; }
         .serif { font-family: 'Playfair Display', serif; font-style: italic; color: var(--accent); text-transform: none; letter-spacing: 0; }
 
-        /* SECCIÓN 1: PORTADA (STRECHED IMAGES) */
+        /* GRID PORTADA */
         .hero-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -67,160 +68,35 @@
         }
         .hero-grid img { width: 100%; aspect-ratio: 2/3; object-fit: cover; border: var(--border); }
 
-        /* SECCIÓN 2: PERFIL (FULL BLEED / FRAMED) */
-        .profile-section {
+        /* SECCIONES EDITORIALES */
+        .section-editorial {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            align-items: center;
+            align-items: start;
             margin-bottom: 100px;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
         }
-        .profile-section img { width: 100%; border: var(--border); }
-        .profile-text { border-left: var(--border); padding-left: 30px; }
+        .section-editorial img { width: 100%; border: var(--border); }
+        .editorial-content { border-left: var(--border); padding-left: 30px; }
 
-        /* SECCIÓN 3: FILOSOFÍA (L-BRACKETS STYLE) */
-        .welcome-box {
-            border: var(--border);
-            padding: 60px;
-            margin-bottom: 100px;
+        /* BLOQUE DE BIENESTAR / SKILLS */
+        .skills-container {
             background-color: var(--bg-soft);
-            position: relative;
+            border: var(--border);
+            padding: 40px;
+            margin-bottom: 100px;
         }
-        .welcome-box h2 { font-size: 3rem; font-weight: 900; margin-top: 0; }
-
-        /* SECCIÓN 4: GALERÍA EDITORIAL */
-        .project-detail { margin-bottom: 100px; }
-        .panoramic-frame { width: 100%; border: var(--border); margin-bottom: 20px; overflow: hidden; }
-        .panoramic-frame img { width: 100%; display: block; }
-
-        .gallery-grid {
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-        }
-        .card { border-top: var(--border); padding-top: 15px; }
-        .card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border: var(--border); margin-bottom: 10px; }
-        .card h3 { font-size: 0.8rem; font-weight: 900; text-transform: uppercase; margin: 0; }
-        .card p { font-size: 0.8rem; color: #555; }
-
-        /* CTA - INICIEMOS UN DIÁLOGO */
-        .cta {
-            background: var(--primary);
-            color: var(--secondary);
-            padding: 100px 20px;
-            text-align: center;
-            margin-top: 100px;
-        }
-        .btn-whatsapp {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--primary);
-            padding: 20px 40px;
-            text-decoration: none;
-            font-weight: 900;
-            text-transform: uppercase;
             margin-top: 30px;
-            transition: 0.3s;
         }
-        .btn-whatsapp:hover { background: var(--secondary); }
-
-        /* MOBILE OPTIMIZATION */
-        @media (max-width: 768px) {
-            .hero-grid { grid-template-columns: repeat(3, 1fr); gap: 5px; } /* Mantiene el ritmo visual */
-            .profile-section { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 3rem; }
-            .welcome-box { padding: 30px; }
+        .skill-card {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #000;
         }
-    </style>
-</head>
-<body>
-
-    <div class="vertical-text left-sidebar">Jesus Gabriel Ramirez — Portfolio 2026</div>
-    <div class="vertical-text right-sidebar">DISEÑO</div>
-
-    <header>
-        Creativos en Accion
-    </header>
-
-    <main class="container">
-        
-        <section>
-            <h1>El Acto de <span class="serif">Crear</span></h1>
-            <p style="text-transform: uppercase; font-weight: 800; letter-spacing: 2px; font-size: 0.7rem; margin-bottom: 40px;">
-                Clases Particulares Santiago & Via Zoom
-            </p>
-            
-            <div class="hero-grid">
-                <img src="portada1.jpg" alt="Obra 1">
-                <img src="portada2.jpg" alt="Obra 2">
-                <img src="portada3.jpg" alt="Obra 3">
-            </div>
-        </section>
-
-        <section class="profile-section">
-            <img src="perfil.jpg" alt="Jesus Gabriel Ramirez">
-            <div class="profile-text">
-                <h2 class="serif" style="font-size: 3rem; margin: 0;">El dibujo como diario</h2>
-                <p>Mi formación técnica en diseño es el cimiento, pero mi esencia habita en el papel. El acto de crear nos transforma a nosotros antes que al objeto. Acompaño procesos donde la curiosidad se convierte en disciplina técnica.</p>
-            </div>
-        </section>
-
-        <section class="welcome-box">
-            <h2>BIENVENIDO</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <div>
-                    <img src="filosofia.jpg" style="width: 100%; border: var(--border);" alt="Filosofia">
-                </div>
-                <div>
-                    <h3 style="text-transform: uppercase; font-weight: 900;">Curiosidad a la Disciplina</h3>
-                    <p style="font-size: 0.9rem;">Iniciamos en el asombro. Identificamos el talento natural para transformarlo en destreza real mediante el tacto y la observación profunda.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail">
-            <h2 style="font-weight: 900; text-transform: uppercase;">Bitácora de Trabajos</h2>
-            <div class="panoramic-frame">
-                <img src="galeria-panoramica.jpg" alt="Vistas Tecnicas">
-            </div>
-            <div style="margin-bottom: 40px;">
-                <h3 style="text-transform: uppercase; margin-bottom: 5px;">Vistas Planas</h3>
-                <p style="font-size: 0.8rem; margin: 0;">Lápiz puro sobre papel. Geometría y disciplina ortogonal.</p>
-            </div>
-
-            <div class="gallery-grid">
-                <div class="card">
-                    <img src="galeria1.jpg" alt="Exprimidor">
-                    <h3>Exprimidor</h3>
-                    <p>Técnica de color. Estudio de luz y degradados suaves.</p>
-                </div>
-                <div class="card">
-                    <img src="galeria2.jpg" alt="Butaca">
-                    <h3>Butaca Abarth</h3>
-                    <p>Marcador. Energía del trazo, volumen y textura contundente.</p>
-                </div>
-                <div class="card">
-                    <img src="galeria3.jpg" alt="Navaja">
-                    <h3>Navaja Suiza</h3>
-                    <p>Técnica Mixta. Fusión de color y marcador para acabado profesional.</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <section class="cta">
-        <div class="container">
-            <h2 style="font-size: 3rem; font-weight: 900; margin: 0;">INICIEMOS UN DIÁLOGO CREATIVO</h2>
-            <p style="letter-spacing: 1px; font-weight: 400; opacity: 0.8;">Más que una clase, es un espacio para descubrir el trazo propio.</p>
-            <a href="https://wa.me/56949646991" class="btn-whatsapp" target="_blank">Contactar por WhatsApp</a>
-        </div>
-    </section>
-
-    <footer style="padding: 40px 0; text-align: center; font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 800;">
-        © 2026 JESUS GABRIEL RAMIREZ — SANTIAGO DE CHILE
-    </footer>
-
-</body>
-</html>
+        .skill-card b { display: block; color: var(--accent); text-transform: uppercase; margin-bottom: 5px; }
