@@ -27,46 +27,59 @@
             overflow-x: hidden;
         }
 
-        /* --- CABECERA ESTILO LEON PRO --- */
+        /* --- CABECERA DINÁMICA --- */
         .hero-brawl { 
             position: relative; 
             background: var(--primary); 
             color: white; 
-            padding: 50px 20px; 
+            padding: 40px 20px; 
             border-bottom: 8px solid var(--leon-green); 
             overflow: hidden;
         }
 
         .hero-bg {
-            position: absolute; 
-            top: 0; left: 0; width: 100%; height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: url('poster-leon.jpg') center/cover; 
-            opacity: 0.3; 
-            z-index: 1;
+            opacity: 0.3; z-index: 1;
         }
 
         .hero-content { position: relative; z-index: 2; }
 
-        /* Título Amarillo con tipografía Bangers */
+        /* Título DESAFÍO LEON PRO */
         h1#mainTitle { 
             font-family: 'Bangers', cursive; 
-            font-size: clamp(3.5rem, 12vw, 6rem); 
+            font-size: clamp(3rem, 10vw, 5.5rem); 
             color: var(--brawl-yellow); 
-            text-shadow: 5px 5px 0 #000; /* Sombra limpia negra */
+            text-shadow: 4px 4px 0 #000; 
             margin: 0; 
             transform: rotate(-3deg); 
             display: inline-block;
-            line-height: 1;
+            cursor: pointer;
         }
 
-        /* Subtítulo Verde Limpio */
-        .subtitle-clean {
+        /* Subtítulo Verde */
+        .subtitle-green {
             font-weight: 900; 
             color: var(--leon-green); 
             letter-spacing: 2px; 
-            margin-top: 15px;
-            font-size: clamp(1rem, 4vw, 1.5rem);
+            margin-top: 10px;
+            font-size: clamp(1rem, 4vw, 1.4rem);
             text-transform: uppercase;
+        }
+
+        /* Texto del Premio que Titila */
+        .prize-text {
+            color: var(--brawl-yellow);
+            font-weight: 900;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            animation: blinker 1.5s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% { opacity: 0.2; }
         }
 
         /* --- CONTENEDOR Y PASOS --- */
@@ -91,15 +104,12 @@
             font-weight: 900; 
             text-transform: uppercase; 
             font-size: 1.1rem;
-            background: white;
         }
 
         .step-header:hover { background: #fffcf0; }
-        .step-header i { transition: 0.3s; }
         
         .step-content { 
-            max-height: 0; 
-            overflow: hidden; 
+            max-height: 0; overflow: hidden; 
             transition: all 0.3s ease-out; 
             background: #fafafa;
         }
@@ -112,20 +122,14 @@
 
         /* Botón WhatsApp */
         .btn-whatsapp {
-            display: inline-flex; 
-            align-items: center; 
-            background: #25D366; 
-            color: white; 
-            padding: 12px 25px; 
-            border-radius: 8px; 
-            text-decoration: none; 
-            font-weight: 900;
-            margin-top: 15px; 
-            transition: 0.3s; 
-            border: 3px solid #000; 
-            box-shadow: 4px 4px 0 #000;
+            display: inline-flex; align-items: center; 
+            background: #25D366; color: white; 
+            padding: 10px 20px; border-radius: 5px; 
+            text-decoration: none; font-weight: 900;
+            margin-top: 10px; transition: 0.3s; 
+            border: 2px solid #000; box-shadow: 3px 3px 0 #000;
         }
-        .btn-whatsapp:hover { transform: scale(1.05); box-shadow: 6px 6px 0 #000; }
+        .btn-whatsapp:hover { transform: scale(1.05); }
 
         /* Formulario */
         .form-box { 
@@ -133,36 +137,32 @@
             box-shadow: 12px 12px 0px var(--brawl-blue); 
             margin-top: 40px; 
             background: white; 
-            border-radius: 10px;
-            overflow: hidden;
         }
-        iframe { width: 100%; height: 850px; border: none; }
+        iframe { width: 100%; height: 800px; border: none; }
 
-        .footer { margin: 50px 0; }
+        .footer { margin: 40px 0; }
         .btn-back { 
-            color: #000; 
-            font-weight: 900; 
+            color: #000; font-weight: 900; 
             text-decoration: none; 
-            border-bottom: 4px solid var(--accent);
-            text-transform: uppercase;
-            padding-bottom: 5px;
+            border-bottom: 3px solid var(--accent); 
         }
     </style>
 </head>
 <body>
 
-    <div class="hero-brawl">
+    <div class="hero-brawl animate__animated animate__fadeInDown">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <h1 id="mainTitle" class="animate__animated animate__rubberBand">DESAFÍO LEON PRO</h1>
-            <p class="subtitle-clean">¡DIBUJA, COMPITE Y GANA!</p>
+            <h1 id="mainTitle" class="animate__animated animate__rubberBand animate__delay-1s">DESAFÍO LEON PRO</h1>
+            <p class="subtitle-green">¡DIBUJA, COMPITE Y GANA!</p>
+            <p class="prize-text">¡PREMIO: UNA MASTERCLASS PERSONALIZADA!</p>
         </div>
     </div>
 
     <div class="container">
         
         <div class="steps-wrapper">
-            <div class="step-item">
+            <div class="step-item animate__animated animate__fadeInLeft animate__delay-1s">
                 <div class="step-header" onclick="toggleStep(0)">
                     <span>1. REGÍSTRATE 📝</span>
                     <i class="fas fa-chevron-down"></i>
@@ -172,23 +172,23 @@
                 </div>
             </div>
 
-            <div class="step-item">
+            <div class="step-item animate__animated animate__fadeInLeft animate__delay-2s">
                 <div class="step-header" onclick="toggleStep(1)">
                     <span>2. BAJA LA GUÍA 📥</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div id="content-1" class="step-content">
-                    Una vez completes tu información, aparecerá automáticamente un link de acceso. Sigue los pasos de la guía: te darán la clave para dibujar a Leon como un PRO.
+                    Una vez completes tu información, aparecerá automáticamente un link de acceso para bajar la guía oficial para dibujar a Leon.
                 </div>
             </div>
 
-            <div class="step-item">
+            <div class="step-item animate__animated animate__fadeInLeft animate__delay-3s">
                 <div class="step-header" onclick="toggleStep(2)">
                     <span>3. RECLAMA TU PREMIO 🏆</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div id="content-2" class="step-content">
-                    ¡Perfecto! Ahora solo falta que envíes una foto de tu dibujo finalizado para agendar tu clase gratuita y evaluar tu talento.
+                    ¡Perfecto! Envía una foto de tu dibujo finalizado para agendar tu clase gratuita y evaluar tu talento.
                     <br>
                     <a href="https://wa.me/56949646991" class="btn-whatsapp">
                         <i class="fab fa-whatsapp"></i> ENVIAR MI DIBUJO
@@ -197,7 +197,7 @@
             </div>
         </div>
 
-        <div class="form-box">
+        <div class="form-box animate__animated animate__fadeInUp animate__delay-4s">
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdQlAPKDH8DeLHgZ148qrRF7wJuIjCvzBGolqFkqCmmDbjHOA/viewform?embedded=true">Cargando…</iframe>
         </div>
 
@@ -212,13 +212,12 @@
             const icons = document.querySelectorAll('.step-header i');
             const title = document.getElementById('mainTitle');
             
-            // 1. Efecto "Goma" al interactuar
-            // Quitamos la clase y la volvemos a poner para reiniciar la animación
+            // EFECTO GOMA: Reinicia la animación cada vez que se interactúa
             title.classList.remove('animate__rubberBand');
-            void title.offsetWidth; // Truco para reiniciar animación CSS
+            void title.offsetWidth; // Truco de magia CSS para reiniciar animación
             title.classList.add('animate__rubberBand');
 
-            // 2. Lógica del Acordeón
+            // Lógica del Acordeón
             contents.forEach((content, i) => {
                 if(i === index) {
                     content.classList.toggle('active');
