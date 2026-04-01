@@ -4,236 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚡ DESAFÍO LEON PRO | Expresión Visual ⚡</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root { 
             --primary: #000000; 
-            --accent: #E89F22; /* Tu color de acento */
-            --leon-green: #2ecc71; /* Verde Leon */
-            --brawl-blue: #3498db; /* Azul Brawl */
-            --brawl-yellow: #f1c40f; /* Amarillo Brawl */
-            --text-dark: #333;
-            --bg-light: #f4f4f4;
+            --accent: #E89F22; 
+            --leon-green: #2ecc71; 
+            --brawl-blue: #3498db; 
+            --brawl-yellow: #f1c40f; 
         }
 
-        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: #f4f4f4; text-align: center; color: #333; }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            background: var(--bg-light); 
-            color: var(--text-dark); 
-            text-align: center; 
-            overflow-x: hidden; /* Evita scroll horizontal en animaciones */
-        }
-
-        /* --- CABECERA DINÁMICA CON IMAGEN (TU IDEA + MI ESTILO) --- */
+        /* Cabecera con Póster */
         .hero-brawl { 
-            position: relative;
-            background: var(--primary);
-            color: white; 
-            padding: 20px;
-            border-bottom: 8px solid var(--leon-green);
-            overflow: hidden;
+            position: relative; background: var(--primary); color: white; padding: 60px 20px; 
+            border-bottom: 8px solid var(--leon-green); overflow: hidden;
         }
-
-        /* Imagen de fondo del póster con opacidad */
-        .hero-bg-image {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('poster-leon.jpg'); /* ASEGÚRATE DE QUE EL ARCHIVO EXISTA */
-            background-size: cover;
-            background-position: center;
-            opacity: 0.3; /* Imagen sutil de fondo */
-            z-index: 1;
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('poster-leon.jpg') center/cover; opacity: 0.4; z-index: 1;
         }
+        .hero-content { position: relative; z-index: 2; }
+        h1 { font-family: 'Bangers', cursive; font-size: clamp(3rem, 10vw, 5rem); color: var(--brawl-yellow); text-shadow: 3px 3px 0 #000; margin: 0; transform: rotate(-2deg); }
 
-        .hero-content {
-            position: relative;
-            z-index: 2; /* Por encima de la imagen de fondo */
-            max-width: 800px;
-            margin: auto;
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+
+        /* ACORDEÓN DE PASOS */
+        .steps-wrapper { margin: 30px 0; text-align: left; }
+        .step-item { 
+            background: white; border: 3px solid #000; margin-bottom: 15px; 
+            box-shadow: 6px 6px 0px #000; transition: 0.3s;
         }
-
-        /* Tipografía estilo Brawl Stars */
-        h1.brawl-title { 
-            font-family: 'Bangers', cursive;
-            font-size: clamp(3rem, 10vw, 6rem); 
-            text-transform: uppercase; 
-            margin: 0; 
-            line-height: 0.9; 
-            letter-spacing: 2px;
-            color: var(--brawl-yellow);
-            text-shadow: 4px 4px 0px var(--primary), 8px 8px 0px var(--leon-green);
-            transform: rotate(-3deg); /* Inclinación dinámica */
+        .step-header { 
+            padding: 15px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+            font-weight: 900; text-transform: uppercase; font-size: 1.1rem;
         }
-
-        .serif-sub { 
-            font-family: 'Playfair Display', serif; 
-            font-style: italic; 
-            color: var(--accent); 
-            font-size: clamp(1rem, 3vw, 1.5rem);
-            margin-top: 10px;
-            display: block;
+        .step-header:hover { background: #fffcf0; }
+        .step-header i { transition: 0.3s; }
+        
+        .step-content { 
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; 
+            background: #fafafa; border-top: 0px solid #000;
         }
+        .step-content.active { max-height: 200px; border-top: 2px solid #000; padding: 20px; }
 
-        /* --- CONTENEDOR PRINCIPAL --- */
-        .container { max-width: 900px; margin: auto; padding: 20px; position: relative; }
-
-        /* --- PASOS VISUALES ANIMADOS --- */
-        .steps-container { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-            gap: 20px; 
-            margin: 40px 0; 
+        /* Botón WhatsApp dentro del paso */
+        .btn-whatsapp {
+            display: inline-flex; align-items: center; background: #25D366; color: white; 
+            padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 900;
+            margin-top: 10px; transition: 0.3s; border: 2px solid #000; box-shadow: 3px 3px 0 #000;
         }
+        .btn-whatsapp:hover { transform: scale(1.05); box-shadow: 5px 5px 0 #000; }
+        .btn-whatsapp i { margin-right: 10px; font-size: 1.2rem; }
 
-        .step-card { 
-            background: white; 
-            border: 4px solid #000; 
-            padding: 20px; 
-            font-weight: 900; 
-            font-size: 0.9rem; 
-            text-transform: uppercase; 
-            box-shadow: 8px 8px 0px #000; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
+        /* Formulario */
+        .form-box { border: 4px solid #000; box-shadow: 12px 12px 0px var(--brawl-blue); margin-top: 40px; background: white; }
+        iframe { width: 100%; height: 800px; border: none; }
 
-        .step-card:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0px var(--leon-green);
-        }
-
-        /* Número del paso con estilo */
-        .step-num {
-            font-family: 'Bangers', cursive;
-            font-size: 2rem;
-            color: var(--leon-green);
-            margin-right: 10px;
-        }
-
-        /* Iconos animados por CSS */
-        .step-icon { font-size: 1.5rem; margin-left: 10px; display: inline-block; transition: transform 0.3s ease; }
-        .step-card:hover .step-icon { transform: scale(1.3) rotate(10deg); }
-
-        /* --- CAJA DEL FORMULARIO CON INTERACCIÓN --- */
-        .form-wrapper { 
-            background: white; 
-            border: 4px solid #000; 
-            box-shadow: 15px 15px 0px var(--brawl-blue); 
-            margin-top: 30px; 
-            overflow: hidden;
-            position: relative;
-            transition: box-shadow 0.5s ease;
-        }
-
-        /* Efecto de brillo al pasar el ratón (JavaScript activará esto) */
-        .form-wrapper.active-glow {
-            box-shadow: 0 0 30px var(--brawl-yellow);
-        }
-
-        .form-wrapper iframe { 
-            width: 100%; 
-            height: 900px; 
-            border: none; 
-        }
-
-        /* --- BOTÓN DE VOLVER --- */
-        .footer-nav { margin-top: 60px; padding-bottom: 50px; }
-        .btn-back { 
-            color: #000; 
-            text-decoration: none; 
-            font-weight: 900; 
-            border: 3px solid #000;
-            padding: 10px 20px;
-            background: white;
-            box-shadow: 4px 4px 0px #000;
-            text-transform: uppercase; 
-            font-size: 0.8rem; 
-            transition: all 0.2s ease;
-        }
-
-        .btn-back:hover {
-            background: var(--accent);
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px #000;
-        }
-
-        /* --- ANIMACIONES CSS PERSONALIZADAS --- */
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .pulse-effect {
-            animation: pulse 2s infinite;
-        }
-
+        .footer { margin: 40px 0; }
+        .btn-back { color: #000; font-weight: 900; text-decoration: none; border-bottom: 3px solid var(--accent); }
     </style>
 </head>
 <body>
 
-    <div class="hero-brawl animate__animated animate__fadeInDown">
-        <div class="hero-bg-image"></div> <div class="hero-content">
-            <p style="letter-spacing: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: rgba(255,255,255,0.8);">MODO COMPETENCIA ACTIVADO — 2026</p>
-            <h1 class="brawl-title animate__animated animate__rubberBand animate__delay-1s">DESAFÍO <br><span class="serif-sub">Leon Pro</span></h1>
-            <p class="pulse-effect" style="color: var(--brawl-yellow); font-weight: 900; margin-top: 20px; text-transform: uppercase;">¡GANA UNA MASTERCLASS PERSONALIZADA!</p>
+    <div class="hero-brawl">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>DESAFÍO LEON PRO</h1>
+            <p style="font-weight: 900; color: var(--leon-green); letter-spacing: 2px;">¡DIBUJA, COMPITE Y GANA!</p>
         </div>
     </div>
 
     <div class="container">
-        <div class="steps-container">
-            <div class="step-card animate__animated animate__fadeInLeft animate__delay-1s">
-                <span class="step-num">1</span>Regístrate <span class="step-icon">📝</span>
+        
+        <div class="steps-wrapper">
+            <div class="step-item">
+                <div class="step-header" onclick="toggleStep(0)">
+                    <span>1. REGÍSTRATE 📝</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div id="content-0" class="step-content">
+                    Diligencia todas las casillas en el formulario al final de esta página. Esto validará tu participación y te dará acceso inmediato a la guía oficial.
+                </div>
             </div>
-            <div class="step-card animate__animated animate__fadeInLeft animate__delay-2s">
-                <span class="step-num">2</span>Baja la Guía <span class="step-icon">📥</span>
+
+            <div class="step-item">
+                <div class="step-header" onclick="toggleStep(1)">
+                    <span>2. BAJA LA GUÍA 📥</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div id="content-1" class="step-content">
+                    Una vez completes tu información, aparecerá automáticamente un link de acceso. Sigue los pasos de la guía: te darán la clave para dibujar a Leon como un verdadero PRO.
+                </div>
             </div>
-            <div class="step-card animate__animated animate__fadeInLeft animate__delay-3s">
-                <span class="step-num">3</span>WhatsApp <span class="step-icon">📱</span>
+
+            <div class="step-item">
+                <div class="step-header" onclick="toggleStep(2)">
+                    <span>3. RECLAMA TU PREMIO 🏆</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div id="content-2" class="step-content">
+                    ¡Perfecto! Ahora solo falta que envíes una foto de tu dibujo finalizado para agendar tu clase gratuita y evaluar tu talento.
+                    <br>
+                    <a href="https://wa.me/56949646991" class="btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> ENVIAR MI DIBUJO
+                    </a>
+                </div>
             </div>
         </div>
 
-        <p style="font-weight: 400; color: #666; margin-bottom: 30px; font-size: 0.9rem;">Completa tus datos para desbloquear el acceso al PDF secreto.</p>
-
-        <div class="form-wrapper animate__animated animate__fadeInUp animate__delay-4s" id="formWrapper">
+        <div class="form-box">
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdQlAPKDH8DeLHgZ148qrRF7wJuIjCvzBGolqFkqCmmDbjHOA/viewform?embedded=true">Cargando…</iframe>
         </div>
 
-        <div class="footer-nav">
-            <a href="index.html" class="btn-back">← Volver</a>
+        <div class="footer">
+            <a href="index.html" class="btn-back">← VOLVER AL INICIO</a>
         </div>
     </div>
 
     <script>
-        // Micro-interacción: Resalta el formulario cuando el usuario hace scroll cerca
-        const formWrapper = document.getElementById('formWrapper');
-        
-        window.addEventListener('scroll', () => {
-            const rect = formWrapper.getBoundingClientRect();
-            // Si el formulario está visible en un 50%
-            if (rect.top < window.innerHeight / 1.5 && rect.bottom > 0) {
-                formWrapper.classList.add('active-glow');
-            } else {
-                formWrapper.classList.remove('active-glow');
-            }
-        });
-
-        // Añadir sonido al hacer hover en los pasos (Opcional, requiere archivo de sonido corto)
-        // const steps = document.querySelectorAll('.step-card');
-        // steps.forEach(step => {
-        //     step.addEventListener('mouseover', () => {
-        //         let audio = new Audio('pop.mp3'); // Sube un archivo 'pop.mp3' corto
-        //         audio.play();
-        //     });
-        // });
+        function toggleStep(index) {
+            const contents = document.querySelectorAll('.step-content');
+            const icons = document.querySelectorAll('.step-header i');
+            
+            contents.forEach((content, i) => {
+                if(i === index) {
+                    content.classList.toggle('active');
+                    icons[i].style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                } else {
+                    content.classList.remove('active');
+                    icons[i].style.transform = 'rotate(0deg)';
+                }
+            });
+        }
     </script>
-
 </body>
 </html>
