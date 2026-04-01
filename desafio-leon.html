@@ -4,134 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚡ DESAFÍO LEON PRO | Expresión Visual ⚡</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root { 
-            --primary: #000000; --accent: #E89F22; --leon-green: #2ecc71; 
-            --brawl-blue: #3498db; --brawl-yellow: #f1c40f; 
+            --primary: #000000; 
+            --accent: #E89F22; 
+            --leon-green: #2ecc71; 
+            --brawl-yellow: #f1c40f; 
+            --brawl-blue: #3498db;
         }
 
-        * { box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background: #f4f4f4; color: #333; text-align: center; overflow-x: hidden; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            background: #f4f4f4; 
+            text-align: center; 
+            color: #333; 
+            overflow-x: hidden;
+        }
 
-        /* --- CABECERA ÉPICA (CÓDIGO 1) --- */
+        /* --- CABECERA ESTILO LEON PRO --- */
         .hero-brawl { 
-            position: relative; background: var(--primary); color: white; padding: 40px 20px; 
-            border-bottom: 8px solid var(--leon-green); overflow: hidden;
-        }
-        .hero-bg-image {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: url('poster-leon.jpg') center/cover; opacity: 0.3; z-index: 1;
-        }
-        .hero-content { position: relative; z-index: 2; max-width: 800px; margin: auto; }
-
-        h1.brawl-title { 
-            font-family: 'Bangers', cursive; font-size: clamp(3rem, 10vw, 5.5rem); 
-            text-transform: uppercase; margin: 0; line-height: 0.9; letter-spacing: 2px;
-            color: var(--brawl-yellow); text-shadow: 4px 4px 0px #000, 7px 7px 0px var(--leon-green);
-            transform: rotate(-3deg);
+            position: relative; 
+            background: var(--primary); 
+            color: white; 
+            padding: 50px 20px; 
+            border-bottom: 8px solid var(--leon-green); 
+            overflow: hidden;
         }
 
-        .serif-sub { font-family: 'Playfair Display', serif; font-style: italic; color: var(--accent); font-size: 1.2rem; }
-
-        /* --- ANUNCIO PALPITANTE (RESTAURADO) --- */
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.08); opacity: 0.9; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        .pulse-prize {
-            animation: pulse 1.5s infinite; color: var(--brawl-yellow);
-            font-weight: 900; margin-top: 25px; text-transform: uppercase;
-            font-size: 1.1rem; letter-spacing: 1px; display: inline-block;
+        .hero-bg {
+            position: absolute; 
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('poster-leon.jpg') center/cover; 
+            opacity: 0.3; 
+            z-index: 1;
         }
 
-        .container { max-width: 850px; margin: auto; padding: 20px; }
+        .hero-content { position: relative; z-index: 2; }
 
-        /* --- ACORDEÓN DE PASOS (CÓDIGO 2 + ANIMACIONES) --- */
-        .steps-wrapper { margin: 35px 0; text-align: left; }
+        /* Título Amarillo con tipografía Bangers */
+        h1#mainTitle { 
+            font-family: 'Bangers', cursive; 
+            font-size: clamp(3.5rem, 12vw, 6rem); 
+            color: var(--brawl-yellow); 
+            text-shadow: 5px 5px 0 #000; /* Sombra limpia negra */
+            margin: 0; 
+            transform: rotate(-3deg); 
+            display: inline-block;
+            line-height: 1;
+        }
+
+        /* Subtítulo Verde Limpio */
+        .subtitle-clean {
+            font-weight: 900; 
+            color: var(--leon-green); 
+            letter-spacing: 2px; 
+            margin-top: 15px;
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            text-transform: uppercase;
+        }
+
+        /* --- CONTENEDOR Y PASOS --- */
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+
+        .steps-wrapper { margin: 30px 0; text-align: left; }
+        
         .step-item { 
-            background: white; border: 4px solid #000; margin-bottom: 15px; 
-            box-shadow: 7px 7px 0px #000; transition: 0.3s;
+            background: white; 
+            border: 3px solid #000; 
+            margin-bottom: 15px; 
+            box-shadow: 6px 6px 0px #000; 
+            transition: 0.3s;
         }
+
         .step-header { 
-            padding: 18px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-            font-weight: 900; text-transform: uppercase; font-size: 1rem;
+            padding: 18px 25px; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            font-weight: 900; 
+            text-transform: uppercase; 
+            font-size: 1.1rem;
+            background: white;
         }
-        .step-header i { transition: 0.3s; color: var(--leon-green); font-size: 1.3rem; }
+
+        .step-header:hover { background: #fffcf0; }
+        .step-header i { transition: 0.3s; }
         
         .step-content { 
-            max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #fafafa;
+            max-height: 0; 
+            overflow: hidden; 
+            transition: all 0.3s ease-out; 
+            background: #fafafa;
         }
-        .step-content.active { max-height: 250px; border-top: 3px solid #000; padding: 20px; }
 
-        /* --- BOTÓN WHATSAPP --- */
+        .step-content.active { 
+            max-height: 300px; 
+            border-top: 2px solid #000; 
+            padding: 20px; 
+        }
+
+        /* Botón WhatsApp */
         .btn-whatsapp {
-            display: inline-flex; align-items: center; background: #25D366; color: white; 
-            padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 900;
-            margin-top: 15px; border: 3px solid #000; box-shadow: 4px 4px 0 #000; transition: 0.2s;
+            display: inline-flex; 
+            align-items: center; 
+            background: #25D366; 
+            color: white; 
+            padding: 12px 25px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 900;
+            margin-top: 15px; 
+            transition: 0.3s; 
+            border: 3px solid #000; 
+            box-shadow: 4px 4px 0 #000;
         }
-        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 6px 6px 0 #000; }
-        .btn-whatsapp i { margin-right: 10px; font-size: 1.4rem; }
+        .btn-whatsapp:hover { transform: scale(1.05); box-shadow: 6px 6px 0 #000; }
 
-        /* --- FORMULARIO DINÁMICO (CÓDIGO 1) --- */
-        .form-wrapper { 
-            background: white; border: 4px solid #000; box-shadow: 15px 15px 0px var(--brawl-blue); 
-            margin-top: 40px; overflow: hidden; transition: box-shadow 0.5s ease;
+        /* Formulario */
+        .form-box { 
+            border: 4px solid #000; 
+            box-shadow: 12px 12px 0px var(--brawl-blue); 
+            margin-top: 40px; 
+            background: white; 
+            border-radius: 10px;
+            overflow: hidden;
         }
-        .form-wrapper.active-glow { box-shadow: 0 0 35px var(--brawl-yellow); }
         iframe { width: 100%; height: 850px; border: none; }
 
         .footer { margin: 50px 0; }
-        .btn-back { color: #000; font-weight: 900; text-decoration: none; border-bottom: 3px solid var(--accent); text-transform: uppercase; font-size: 0.8rem; }
+        .btn-back { 
+            color: #000; 
+            font-weight: 900; 
+            text-decoration: none; 
+            border-bottom: 4px solid var(--accent);
+            text-transform: uppercase;
+            padding-bottom: 5px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="hero-brawl animate__animated animate__fadeInDown">
-        <div class="hero-bg-image"></div>
+    <div class="hero-brawl">
+        <div class="hero-bg"></div>
         <div class="hero-content">
-            <p style="letter-spacing: 4px; font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.7);">MODO COMPETENCIA — 2026</p>
-            <h1 class="brawl-title animate__animated animate__rubberBand animate__delay-1s">
-                DESAFÍO <br><span class="serif-sub">Leon Pro</span>
-            </h1>
-            <div class="pulse-prize">¡PREMIO: UNA MASTERCLASS PERSONALIZADA! 🏆</div>
+            <h1 id="mainTitle" class="animate__animated animate__rubberBand">DESAFÍO LEON PRO</h1>
+            <p class="subtitle-clean">¡DIBUJA, COMPITE Y GANA!</p>
         </div>
     </div>
 
     <div class="container">
         
         <div class="steps-wrapper">
-            <div class="step-item animate__animated animate__fadeInLeft animate__delay-2s">
+            <div class="step-item">
                 <div class="step-header" onclick="toggleStep(0)">
                     <span>1. REGÍSTRATE 📝</span>
-                    <i class="fas fa-plus-circle"></i>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
                 <div id="content-0" class="step-content">
                     Diligencia todas las casillas en el formulario al final de esta página. Esto validará tu participación y te dará acceso inmediato a la guía oficial.
                 </div>
             </div>
 
-            <div class="step-item animate__animated animate__fadeInLeft animate__delay-3s">
+            <div class="step-item">
                 <div class="step-header" onclick="toggleStep(1)">
                     <span>2. BAJA LA GUÍA 📥</span>
-                    <i class="fas fa-plus-circle"></i>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
                 <div id="content-1" class="step-content">
-                    Una vez completes tus datos, aparecerá un link de acceso. Sigue los pasos de la guía: son la clave para dibujar como un verdadero PRO.
+                    Una vez completes tu información, aparecerá automáticamente un link de acceso. Sigue los pasos de la guía: te darán la clave para dibujar a Leon como un PRO.
                 </div>
             </div>
 
-            <div class="step-item animate__animated animate__fadeInLeft animate__delay-4s">
+            <div class="step-item">
                 <div class="step-header" onclick="toggleStep(2)">
                     <span>3. RECLAMA TU PREMIO 🏆</span>
-                    <i class="fas fa-plus-circle"></i>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
                 <div id="content-2" class="step-content">
-                    ¡Casi listo! Envía una foto de tu dibujo finalizado para agendar tu clase gratuita y evaluar tu nivel.
+                    ¡Perfecto! Ahora solo falta que envíes una foto de tu dibujo finalizado para agendar tu clase gratuita y evaluar tu talento.
                     <br>
                     <a href="https://wa.me/56949646991" class="btn-whatsapp">
                         <i class="fab fa-whatsapp"></i> ENVIAR MI DIBUJO
@@ -140,44 +197,38 @@
             </div>
         </div>
 
-        <div class="form-wrapper animate__animated animate__fadeInUp animate__delay-5s" id="formWrapper">
+        <div class="form-box">
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdQlAPKDH8DeLHgZ148qrRF7wJuIjCvzBGolqFkqCmmDbjHOA/viewform?embedded=true">Cargando…</iframe>
         </div>
 
         <div class="footer">
-            <a href="index.html" class="btn-back">← Volver al inicio</a>
+            <a href="index.html" class="btn-back">← VOLVER AL INICIO</a>
         </div>
     </div>
 
     <script>
-        // Lógica del Acordeón
         function toggleStep(index) {
             const contents = document.querySelectorAll('.step-content');
             const icons = document.querySelectorAll('.step-header i');
+            const title = document.getElementById('mainTitle');
             
+            // 1. Efecto "Goma" al interactuar
+            // Quitamos la clase y la volvemos a poner para reiniciar la animación
+            title.classList.remove('animate__rubberBand');
+            void title.offsetWidth; // Truco para reiniciar animación CSS
+            title.classList.add('animate__rubberBand');
+
+            // 2. Lógica del Acordeón
             contents.forEach((content, i) => {
                 if(i === index) {
-                    const isActive = content.classList.toggle('active');
-                    icons[i].className = isActive ? 'fas fa-minus-circle' : 'fas fa-plus-circle';
-                    icons[i].style.color = isActive ? 'var(--brawl-yellow)' : 'var(--leon-green)';
+                    content.classList.toggle('active');
+                    icons[i].style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
                 } else {
                     content.classList.remove('active');
-                    icons[i].className = 'fas fa-plus-circle';
-                    icons[i].style.color = 'var(--leon-green)';
+                    icons[i].style.transform = 'rotate(0deg)';
                 }
             });
         }
-
-        // Lógica del Brillo (Glow) al Scroll
-        const formWrapper = document.getElementById('formWrapper');
-        window.addEventListener('scroll', () => {
-            const rect = formWrapper.getBoundingClientRect();
-            if (rect.top < window.innerHeight / 1.3 && rect.bottom > 0) {
-                formWrapper.classList.add('active-glow');
-            } else {
-                formWrapper.classList.remove('active-glow');
-            }
-        });
     </script>
 </body>
 </html>
