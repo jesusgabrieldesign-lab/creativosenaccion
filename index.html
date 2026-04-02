@@ -179,7 +179,7 @@
             object-fit: cover;
             border: var(--border-thick);
             z-index: 2;
-            box-shadow: 0px 15px 0px var(--bg-soft);
+            box-shadow: none;
             animation: float 6s ease-in-out infinite;
         }
 
@@ -197,7 +197,19 @@
         .img-sub-1 { top: -20px; right: -10px; animation: slideInRight 1.5s ease-out; }
         .img-sub-2 { bottom: -10px; left: -10px; animation: slideInLeft 1.5s ease-out; }
 
-        .hero-visual-collage:hover .img-sub { filter: grayscale(0%); transform: scale(1.05); z-index: 3; }
+        /* Esta clase "focused" la pondremos con JavaScript al hacer clic */
+        .hero-visual-collage img.focused {
+            z-index: 10 !important; /* Super al frente */
+            filter: grayscale(0%) !important; /* A color */
+            transform: scale(1.1) !important; /* Un poco más grande */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Sombra para que flote */
+        }
+
+        /* Hacemos que todas las fotos tengan una transición suave */
+        .hero-visual-collage img {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
 
         @keyframes revealText {
             0% { opacity: 0; transform: translateY(30px); }
@@ -317,9 +329,9 @@
             </div>
 
             <div class="hero-visual-collage">
-                <img src="portada2.jpg" alt="Detalle" class="img-sub img-sub-1">
-                <img src="portada1.jpg" alt="Principal" class="img-main">
-                <img src="portada3.jpg" alt="Detalle" class="img-sub img-sub-2">
+                <img src="portada2.jpg" class="img-sub img-sub-1" onclick="traerAlFrente(this)">
+                <img src="portada1.jpg" class="img-main focused" onclick="traerAlFrente(this)">
+                <img src="portada3.jpg" class="img-sub img-sub-2" onclick="traerAlFrente(this)">
             </div>
         </section>
 
@@ -395,5 +407,17 @@
         © 2026 JESUS GABRIEL RAMIREZ — SANTIAGO DE CHILE
     </footer>
 
+    <script>
+function traerAlFrente(elementoClickeado) {
+    // 1. Buscamos todas las imágenes dentro del collage
+    const imagenes = document.querySelectorAll('.hero-visual-collage img');
+    
+    // 2. A TODAS les quitamos la clase 'focused' (las mandamos atrás)
+    imagenes.forEach(img => img.classList.remove('focused'));
+    
+    // 3. A la que acabamos de tocar, le ponemos la clase 'focused' (la trae adelante)
+    elementoClickeado.classList.add('focused');
+}
+</script>
 </body>
 </html>
