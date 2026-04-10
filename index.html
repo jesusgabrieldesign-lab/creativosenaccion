@@ -120,11 +120,31 @@
             letter-spacing: 4px;
             z-index: 10;
         }
-        @media (min-width: 1200px) {
-            .vertical-text { display: block; }
-            .left-sidebar { left: 30px; top: 50%; transform: rotate(-180deg); writing-mode: vertical-rl; }
-            .right-sidebar { right: 30px; top: 50%; transform: translateY(-50%); writing-mode: vertical-rl; }
-        }
+       @media (max-width: 768px) {
+    .hero-improved {
+        grid-template-columns: 1fr; /* Una sola columna */
+        margin: 40px 0 60px;
+        text-align: center;
+    }
+
+    .hero-improved h1 {
+        font-size: 3rem; /* Tamaño de letra más manejable en móviles */
+        letter-spacing: -2px;
+    }
+
+    .hero-visual-collage {
+        height: 350px; /* Reducimos la altura del contenedor de fotos */
+        margin-top: 30px;
+    }
+
+    .img-main {
+        width: 60%; /* La foto principal un poco más pequeña */
+    }
+
+    .img-sub {
+        width: 40%; /* Las fotos de apoyo más pequeñas para que no tapen todo */
+    }
+}
 
         .hero-improved {
             display: grid;
@@ -287,12 +307,14 @@
         .btn-whatsapp:hover { transform: scale(1.05); }
 
         @media (max-width: 768px) {
-            .hero-improved { grid-template-columns: 1fr; text-align: center; margin-top: 40px; }
-            .hero-tagline { justify-content: center; }
-            .hero-visual-collage { height: 400px; }
-            .section-editorial, .gallery-grid { grid-template-columns: 1fr; }
-            .contest-flex { flex-direction: column; gap: 10px; }
-        }
+    .contest-text-promo {
+        font-size: 0.7rem; /* Reducimos el texto para que no use tantas líneas */
+        line-height: 1.2;
+    }
+    .contest-title-main {
+        font-size: 1.5rem; /* Ajuste para que el título del concurso quepa bien */
+    }
+}
     </style>
 </head>
 <body>
