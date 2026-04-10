@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Transforma la frustración de tu hijo en disciplina. descubre cómo el dibujo técnico desarrolla habilidades blandas y enfoque.">.
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transforma la frustración de tu hijo en disciplina. descubre cómo el dibujo técnico desarrolla habilidades blandas y enfoque.">
     <title>Academia de Dibujo y Resiliencia | desarrollo de habilidades blandas</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&family=Bangers&display=swap" rel="stylesheet">
@@ -120,31 +121,6 @@
             letter-spacing: 4px;
             z-index: 10;
         }
-       @media (max-width: 768px) {
-    .hero-improved {
-        grid-template-columns: 1fr; /* Una sola columna */
-        margin: 40px 0 60px;
-        text-align: center;
-    }
-
-    .hero-improved h1 {
-        font-size: 3rem; /* Tamaño de letra más manejable en móviles */
-        letter-spacing: -2px;
-    }
-
-    .hero-visual-collage {
-        height: 350px; /* Reducimos la altura del contenedor de fotos */
-        margin-top: 30px;
-    }
-
-    .img-main {
-        width: 60%; /* La foto principal un poco más pequeña */
-    }
-
-    .img-sub {
-        width: 40%; /* Las fotos de apoyo más pequeñas para que no tapen todo */
-    }
-}
 
         .hero-improved {
             display: grid;
@@ -217,15 +193,13 @@
         .img-sub-1 { top: -20px; right: -10px; animation: slideInRight 1.5s ease-out; }
         .img-sub-2 { bottom: -10px; left: -10px; animation: slideInLeft 1.5s ease-out; }
 
-        /* Esta clase "focused" la pondremos con JavaScript al hacer clic */
         .hero-visual-collage img.focused {
-            z-index: 10 !important; /* Super al frente */
-            filter: grayscale(0%) !important; /* A color */
-            transform: scale(1.1) !important; /* Un poco más grande */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Sombra para que flote */
+            z-index: 10 !important;
+            filter: grayscale(0%) !important;
+            transform: scale(1.1) !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        /* Hacemos que todas las fotos tengan una transición suave */
         .hero-visual-collage img {
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
@@ -306,34 +280,35 @@
         }
         .btn-whatsapp:hover { transform: scale(1.05); }
 
-@media (max-width: 768px) {
-    /* Layout General a una columna */
-    .hero-improved, .section-editorial, .gallery-grid {
-        grid-template-columns: 1fr !important;
-        display: flex !important;
-        flex-direction: column !important;
-    }
+        /* --- OPTIMIZACIÓN MÓVIL (AL FINAL PARA ASEGURAR PRIORIDAD) --- */
+        @media (max-width: 768px) {
+            .hero-improved, 
+            .section-editorial, 
+            .gallery-grid {
+                grid-template-columns: 1fr !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 40px;
+            }
 
-    /* Hero específico */
-    .hero-improved { text-align: center; margin-top: 20px; }
-    .hero-improved h1 { font-size: 2.8rem !important; }
-    .hero-tagline { justify-content: center; font-size: 0.8rem; }
-    .hero-visual-collage { height: 320px; order: 2; }
-    .hero-text-content { order: 1; }
+            .hero-improved { text-align: center; margin: 40px 0 60px; }
+            .hero-improved h1 { font-size: 3rem !important; letter-spacing: -2px; }
+            .hero-text-content { order: 1; }
+            .hero-visual-collage { order: 2; height: 350px; margin-top: 30px; }
+            .hero-tagline { justify-content: center; font-size: 0.8rem; }
 
-    /* Imágenes */
-    .img-main { width: 70%; }
-    .img-sub { width: 50%; }
-    .profile-img-container { max-width: 280px; margin: 0 auto; }
+            .img-main { width: 65%; }
+            .img-sub { width: 45%; }
 
-    /* Banner del Concurso */
-    .contest-flex { flex-direction: column; gap: 10px; }
-    .contest-title-main { font-size: 1.4rem; }
-    .contest-text-promo { font-size: 0.75rem; }
+            .profile-img-container { max-width: 300px; margin: 0 auto; }
+            .editorial-content { padding-right: 0; text-align: left; }
 
-    /* Botón WhatsApp */
-    .btn-whatsapp { width: 100%; padding: 20px 10px; }
-}
+            .contest-flex { flex-direction: column; gap: 10px; }
+            .contest-title-main { font-size: 1.4rem; }
+            .contest-text-promo { font-size: 0.75rem; }
+
+            .btn-whatsapp { width: 100%; padding: 20px 10px; }
+        }
     </style>
 </head>
 <body>
@@ -375,9 +350,9 @@
             </div>
 
             <div class="hero-visual-collage">
-                <img src="portada2.jpeg" class="img-sub img-sub-1" onclick="traerAlFrente(this)" alt="Mario bros, practica de deep work a travez del sombreado - Academia Creativos en Acción">
-                <img src="portada1.jpg" class="img-main focused" onclick="traerAlFrente(this)" alt="ejercicio de vervalizacion de emociones a travez del dibijo de personajes - procesos de creativo emocinal">
-                <img src="portada3.jpeg" class="img-sub img-sub-2" onclick="traerAlFrente(this)" alt="integracion del error como momento eureka, trasformacion de errores de forma creativa">
+                <img src="portada2.jpeg" class="img-sub img-sub-1" onclick="traerAlFrente(this)" alt="Mario bros, practica de deep work">
+                <img src="portada1.jpg" class="img-main focused" onclick="traerAlFrente(this)" alt="ejercicio de verbalizacion">
+                <img src="portada3.jpeg" class="img-sub img-sub-2" onclick="traerAlFrente(this)" alt="integracion del error">
             </div>
         </section>
 
@@ -417,22 +392,22 @@
         <section class="project-detail">
             <h2>Bitácora de <span class="serif">Trabajos</span></h2>
             <div class="panoramic-frame">
-                <img src="galeria-panoramica.jpeg" alt="abstraccion geometrica para la entender formas elaboradas, ejercicio de logica traspolable a otras actividades cognitivas">
+                <img src="galeria-panoramica.jpeg" alt="abstraccion geometrica">
             </div>
             
             <div class="gallery-grid">
                 <div class="card">
-                    <img src="galeria1.jpg" alt="concentracion profunda, deep works y focus, en la observacion de sombras, aplicado de color por capas y el proceso de construccion del volumen">
+                    <img src="galeria1.jpg" alt="Foco">
                     <h3>Foco y concentración sostenida</h3>
                     <p>Estudio de degradados y atención al detalle y exploración conceptual.</p>
                 </div>
                 <div class="card">
-                    <img src="galeria2.jpg" alt="uso del marcadores para elaboracion de poster, pruba de confianza adquirida atravez de las practicas y conocieminto de recursos porpios">
+                    <img src="galeria2.jpg" alt="Autoeficacia">
                     <h3>Autoeficacia</h3>
                     <p>El pulso seguro como ejercicio que refleja la confianza desarrollada mediante la integración del error.</p>
                 </div>
                 <div class="card">
-                    <img src="galeria3.jpg" alt="habilidad desarrollada mendinate la practica sostenida, ejemplo claro de capacidad de gratificacion aplazada">
+                    <img src="galeria3.jpg" alt="Gratificacion">
                     <h3>Gratificación Aplazada</h3>
                     <p>La perseverancia aplicada a un proceso, un compendio de aprendizajes en el tiempo.</p>
                 </div>
@@ -455,13 +430,8 @@
 
     <script>
 function traerAlFrente(elementoClickeado) {
-    // 1. Buscamos todas las imágenes dentro del collage
     const imagenes = document.querySelectorAll('.hero-visual-collage img');
-    
-    // 2. A TODAS les quitamos la clase 'focused' (las mandamos atrás)
     imagenes.forEach(img => img.classList.remove('focused'));
-    
-    // 3. A la que acabamos de tocar, le ponemos la clase 'focused' (la trae adelante)
     elementoClickeado.classList.add('focused');
 }
 </script>
