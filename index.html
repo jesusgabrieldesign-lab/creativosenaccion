@@ -10,6 +10,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <style>
+        /* Estilo para el contenedor del logo y el texto */
+.brand-container {
+    display: flex;
+    align-items: center; /* Centra verticalmente el logo con el texto */
+    gap: 20px; /* Espacio entre el logo y el texto */
+    margin-bottom: 20px;
+}
+
+.logo-isologo {
+    height: 120px; /* Ajusta este valor según la proporción visual que desees */
+    width: auto;
+    display: block;
+}
+
+/* Ajuste para móvil */
+@media (max-width: 768px) {
+    .brand-container {
+        flex-direction: column; /* En móvil se apilan */
+        gap: 10px;
+    }
+    .logo-isologo {
+        height: 80px; /* Más pequeño en pantallas chicas */
+    }
+}
         /* ADN VISUAL EXTRAÍDO DEL PDF */
         :root {
             --primary: #000000;
@@ -337,17 +361,23 @@
 
     <main class="container">
         
-        <section class="hero-improved">
-            <div class="hero-text-content">
-                <h1 class="animate__animated animate__fadeInLeft">
-                    Creativos <span class="light-text">en Acción</span> <br>
-                    <span class="serif" style="font-size: 0.4em; display: block; margin-top: 10px; letter-spacing: 1px;">
+       <section class="hero-improved">
+    <div class="hero-text-content">
+        
+        <div class="brand-container animate__animated animate__fadeInLeft">
+            <img src="creativos en accion la marca.png" alt="Logo Creativos en Acción" class="logo-isologo">
+            
+            <h1 style="margin: 0; line-height: 0.85;">
+                Creativos <span class="light-text">en Acción</span> <br>
+                <span class="serif" style="font-size: 0.4em; display: block; margin-top: 10px; letter-spacing: 1px;">
                     Academia de Resiliencia y Cognición Gráfica
-                    </span>
-                </h1>
-                <div class="hero-tagline animate__animated animate__fadeInLeft animate__delay-1s">
-                    Entrena el enfoque de tu hijo a través del dibujo técnico
-                </div>
+                </span>
+            </h1>
+        </div>
+
+        <div class="hero-tagline animate__animated animate__fadeInLeft animate__delay-1s">
+            Entrena el enfoque de tu hijo a través del dibujo técnico
+        </div>
                 <p style="font-size: 1rem; font-weight: 300; margin-top: 30px; max-width: 450px;">
                     "Un espacio para potenciar el talento y desarrollar habilidades blandas."
                 </p>
