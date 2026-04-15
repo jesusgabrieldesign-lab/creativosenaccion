@@ -19,11 +19,10 @@
 }
 
 .logo-isologo {
-    height: 420px; /* Tamaño que solicitaste */
+    height: clamp(80px, 10vw, 100px); /* Se adapta entre 80px y 100px */
     width: auto;
-    display: inline-block; /* Cambiado de block a inline-block para mejor flujo con el flex */
-    object-fit: contain; /* Asegura que no se corte */
-    min-width: 50px; /* Espacio mínimo garantizado */
+    display: inline-block;
+    object-fit: contain;
 }
 
 /* Ajuste para móvil */
